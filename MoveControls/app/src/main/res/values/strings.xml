@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MoveControls</string>
+    <string name="check_use_firwall">Use Firewall</string>
+    <string name="btn_apply">button Apply</string>
+</resources>
