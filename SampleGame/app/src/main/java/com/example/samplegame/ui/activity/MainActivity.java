@@ -1,8 +1,10 @@
-package com.example.samplegame;
+package com.example.samplegame.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.samplegame.R;
 
 public class MainActivity extends AppCompatActivity {
 

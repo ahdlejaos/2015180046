@@ -1,4 +1,4 @@
-package com.example.samplegame;
+package com.example.samplegame.framework;
 
 import android.graphics.Canvas;
 
