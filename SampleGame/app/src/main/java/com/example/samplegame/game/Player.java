@@ -84,6 +84,7 @@ public class Player implements GameObject {
 
         canvas.save();
         canvas.rotate(degree,x,y);
+//         matrix에회전변환을곱해줌
         canvas.drawBitmap(bitmap, left, top, null);
         canvas.restore();
 
