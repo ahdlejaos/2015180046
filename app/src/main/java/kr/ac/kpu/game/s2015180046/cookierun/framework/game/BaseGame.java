@@ -1,18 +1,18 @@
-package kr.ac.kpu.game.s2015180046.cookierun.game;
+package kr.ac.kpu.game.s2015180046.cookierun.framework.game;
 
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.EnumMap;
 import java.util.HashMap;
 
-import kr.ac.kpu.game.s2015180046.dragonflight.R;
-import kr.ac.kpu.game.s2015180046.dragonflight.framework.GameObject;
-import kr.ac.kpu.game.s2015180046.dragonflight.framework.Recyclable;
-import kr.ac.kpu.game.s2015180046.dragonflight.ui.view.GameView;
-import kr.ac.kpu.game.s2015180046.dragonflight.utils.CollisionHelper;
+import kr.ac.kpu.game.s2015180046.cookierun.R;
+import kr.ac.kpu.game.s2015180046.cookierun.framework.iface.GameObject;
+import kr.ac.kpu.game.s2015180046.cookierun.framework.iface.Recyclable;
+import kr.ac.kpu.game.s2015180046.cookierun.framework.object.VerticalScrollBackground;
+import kr.ac.kpu.game.s2015180046.cookierun.game.Player;
+import kr.ac.kpu.game.s2015180046.cookierun.game.Score;
+import kr.ac.kpu.game.s2015180046.cookierun.view.GameView;
 
 public class MainGame {
     private static final String TAG = MainGame.class.getSimpleName();
@@ -77,18 +77,20 @@ public class MainGame {
         player = new Player(w/2, h - 300);
         //layers.get(Layer.player.ordinal()).add(player);
         add(Layer.player,player);
-        add(Layer.controller,new EnemyGenerator());
+        //add(Layer.controller,new EnemyGenerator());
 
         int margin = (int) (20*GameView.MULTIPLIER);
         score = new Score(w-margin, margin);
         score.setScore(0);
-        add(Layer.ui,score);
+        //add(Layer.ui,score);
 
-        VerticalScrollBackground bg = new VerticalScrollBackground(R.mipmap.bg_city,10);
-        add(Layer.bg1,bg);
 
-        VerticalScrollBackground clouds = new VerticalScrollBackground(R.mipmap.clouds,20);
-        add(Layer.bg2,clouds);
+        add(Layer.bg1,new VerticalScrollBackground(R.mipmap.cookie_run_bg_1,50));
+        add(Layer.bg1,new VerticalScrollBackground(R.mipmap.cookie_run_bg_2,100));
+        add(Layer.bg1,new VerticalScrollBackground(R.mipmap.cookie_run_bg_3,150));
+
+      /*  VerticalScrollBackground clouds = new VerticalScrollBackground(R.mipmap.clouds,20);
+        add(Layer.bg2,clouds);*/
         initialized = true;
         return true;
     }
@@ -114,63 +116,11 @@ public class MainGame {
             }
         }
 
-        ArrayList<GameObject> enemies = layers.get(Layer.enemy.ordinal());
-        ArrayList<GameObject> bullets = layers.get(Layer.bullet.ordinal());
-        for(GameObject o1: enemies){
-            Enemy enemy = (Enemy)o1;
-            boolean isCollided = false;
-            for(GameObject o2: bullets){
-                Bullet bullet = (Bullet) o2;
-                if(CollisionHelper.isCollides(enemy,bullet)){
-                    remove(bullet);
-                    remove(enemy);
-                    score.addScore(10);
-                    isCollided = true;
-                    break;
-                }
-            }
-            if(isCollided){
-                break;
-            }
-        }
-       /* for (GameObject o : objects) {
-            o.update();
-        }
-
-        for(GameObject o1 : objects){
-            if(!(o1 instanceof Enemy)){
-                continue;
-            }
-            Enemy enemy = (Enemy) o1;
-            boolean removed = false;
-            for(GameObject o2 : objects){
-                if(!(o2 instanceof Bullet)){
-                    continue;
-                }
-
-                Bullet bullet = (Bullet) o2;
-
-                if (CollisionHelper.isCollides((BoxCollidable)o1, (BoxCollidable)o2)) {
-                    Log.d(TAG, "Collision!" + o1 + " - " + o2);
-                    remove(enemy);
-                    remove(bullet);
-                   // bullet.recycle();
-                    //recycle(bullet);
-                    removed = true;
-                    break;
-                }
-            }
-            if (removed){
-                continue;
-            }
-            if(CollisionHelper.isCollides((BoxCollidable)enemy,player)){
-                Log.d(TAG, "Collision!: Enemy - player");
-            }
 
 
         }
-*/
-    }
+
+
 
     public void draw(Canvas canvas) {
         //if (!initialized) return;

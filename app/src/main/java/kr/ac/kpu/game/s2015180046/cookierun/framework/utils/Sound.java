@@ -1,4 +1,4 @@
-package kr.ac.kpu.game.s2015180046.cookierun.framework;
+package kr.ac.kpu.game.s2015180046.cookierun.utils;
 
 import android.content.Context;
 import android.media.AudioAttributes;

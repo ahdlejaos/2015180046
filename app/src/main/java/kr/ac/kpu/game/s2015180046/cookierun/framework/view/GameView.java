@@ -1,4 +1,4 @@
-package kr.ac.kpu.game.s2015180046.cookierun.ui.view;
+package kr.ac.kpu.game.s2015180046.cookierun.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,8 +10,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import kr.ac.kpu.game.s2015180046.cookierun.framework.MainGame;
-import kr.ac.kpu.game.s2015180046.cookierun.framework.Sound;
+import kr.ac.kpu.game.s2015180046.cookierun.framework.game.MainGame;
+import kr.ac.kpu.game.s2015180046.cookierun.utils.Sound;
 
 
 public class GameView extends View {

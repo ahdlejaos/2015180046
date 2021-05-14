@@ -1,17 +1,16 @@
-package kr.ac.kpu.game.s2015180046.dragonflight.utils;
+package kr.ac.kpu.game.s2015180046.cookierun.utils;
 
 
-import android.graphics.Rect;
 import android.graphics.RectF;
 
-import kr.ac.kpu.game.s2015180046.dragonflight.framework.BoxCollidable;
-import kr.ac.kpu.game.s2015180046.dragonflight.framework.GameObject;
+import kr.ac.kpu.game.s2015180046.cookierun.framework.iface.BoxCollidable;
+
 
 public class CollisionHelper {
 
     private static RectF rect1 = new RectF();
     private static RectF rect2 = new RectF();
-    public static boolean isCollides(BoxCollidable object1,BoxCollidable object2){
+    public static boolean isCollides(BoxCollidable object1, BoxCollidable object2){
         object1.getBoundingRect(rect1);
         object2.getBoundingRect(rect2);
 

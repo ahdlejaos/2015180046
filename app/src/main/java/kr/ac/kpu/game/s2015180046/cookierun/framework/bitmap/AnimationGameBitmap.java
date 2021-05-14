@@ -1,22 +1,21 @@
 package kr.ac.kpu.game.s2015180046.cookierun.framework;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.RectF;
 
-import kr.ac.kpu.game.s2015180046.dragonflight.ui.view.GameView;
+import kr.ac.kpu.game.s2015180046.cookierun.view.GameView;
+
 
 public class AnimationGameBitmap extends GameBitmap {
     private static final int PIXEL_MULTIPLIER = 4;
   //  private Bitmap bitmap;
     private final int imageWidth;
     private final int imageHeight;
-    private final int frameWidth;
-    private final long createdOn;
-    private int frameIndex;
-    private final float framesPerSecond;
-    private final int frameCount;
+    protected int frameWidth;
+    protected final long createdOn;
+    protected int frameIndex;
+    protected final float framesPerSecond;
+    protected int frameCount;
 
     protected Rect srcRect = new Rect();
 
