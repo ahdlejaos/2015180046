@@ -27,12 +27,14 @@ public class Enemy implements GameObject, BoxCollidable, Recyclable {
 
     };
     private static final String TAG = Enemy.class.getSimpleName();
+
     private float x;
     private GameBitmap bitmap;
     private int level;
 
     private float y;
     private int speed;
+
 
     private Enemy(){
         Log.d(TAG,"enemy construct");
@@ -46,7 +48,7 @@ public class Enemy implements GameObject, BoxCollidable, Recyclable {
         Enemy enemy = (Enemy) game.get(Enemy.class);
 
         if(enemy==null) {
-            enemy =  new Enemy();
+            enemy = new Enemy();
         }
 
         enemy.init(level,x,y,speed);
@@ -93,6 +95,9 @@ public class Enemy implements GameObject, BoxCollidable, Recyclable {
     public void recycle() {
 
     }
+
+    public int hp =8;
+
 }
 
 

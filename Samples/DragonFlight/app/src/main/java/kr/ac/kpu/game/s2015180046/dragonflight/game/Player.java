@@ -19,7 +19,7 @@ public class Player implements GameObject, BoxCollidable {
     private float speed;
     private GameBitmap planeBitmap;
     private GameBitmap fireBitmap; // ctrl + f6 이름전체바꾸기
-
+    private int dmg;
 
 
     public Player(float x, float y) {

@@ -122,9 +122,14 @@ public class MainGame {
             for(GameObject o2: bullets){
                 Bullet bullet = (Bullet) o2;
                 if(CollisionHelper.isCollides(enemy,bullet)){
+                    enemy.hp -= bullet.dmg;
+                    if(enemy.hp<=0){
+                        remove(enemy);
+                        levelUp(bullet);
+                        score.addScore(10);
+                    }
                     remove(bullet);
-                    remove(enemy);
-                    score.addScore(10);
+
                     isCollided = true;
                     break;
                 }
@@ -170,6 +175,11 @@ public class MainGame {
 
         }
 */
+    }
+
+    private void levelUp(Bullet bullet) {
+        bullet.dmg++;
+
     }
 
     public void draw(Canvas canvas) {

@@ -16,8 +16,9 @@ public class Bullet implements GameObject, BoxCollidable, Recyclable {
     private final GameBitmap bitmap;
     private float y;
     private int speed;
+    public int dmg=2;
 
-    private Bullet(float x, float y, int speed){
+    protected Bullet(float x, float y, int speed){
         this.x = x;
         this.y = y;
         this.speed = -speed;
@@ -75,4 +76,5 @@ public class Bullet implements GameObject, BoxCollidable, Recyclable {
     public void recycle() {
         //재활용통에 들어가는 시점에 불리는 함수
     }
+
 }
