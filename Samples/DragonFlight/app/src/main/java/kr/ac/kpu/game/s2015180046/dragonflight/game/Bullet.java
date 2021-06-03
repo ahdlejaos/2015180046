@@ -17,14 +17,41 @@ public class Bullet implements GameObject, BoxCollidable, Recyclable {
     private float y;
     private int speed;
     public int dmg=2;
+    public int power;
+    public int size;
+    public int level;
 
-    protected Bullet(float x, float y, int speed){
+    private Bullet(int level,float x, float y, int speed){
         this.x = x;
         this.y = y;
         this.speed = -speed;
         this.bitmap = new GameBitmap(R.mipmap.laser_1);
 //        halfWidth = bitmap.getWidth()/2;
 //        halfHeight = bitmap.getHeight() /2;
+
+        if(this.level == 1) {
+            this.power = 10;
+            this.size = 4;
+        }
+        else if(this.level == 2) {
+            this.power = 30;
+            this.size = 4;
+        }
+        else if(this.level == 3) {
+            this.power = 50;
+            this.size = 4;
+        }
+        else if(this.level == 4) {
+            this.power = 100;
+            this.size = 5;
+        }
+        else if(this.level == 5) {
+            this.power = 150;
+            this.size = 5;
+        }
+
+
+
     }
 
 //    private static ArrayList<Bullet> recycleBin = new ArrayList<>();
@@ -33,7 +60,7 @@ public class Bullet implements GameObject, BoxCollidable, Recyclable {
         MainGame game = MainGame.get();
         Bullet bullet = (Bullet) game.get(Bullet.class);
         if(bullet==null) {
-            return new Bullet(x, y, speed);
+            return new Bullet(level,x, y, speed);
         }
 
         bullet.init(x,y,speed);
