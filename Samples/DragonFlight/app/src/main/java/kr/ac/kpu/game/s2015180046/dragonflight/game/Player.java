@@ -20,6 +20,9 @@ public class Player implements GameObject, BoxCollidable {
     private GameBitmap planeBitmap;
     private GameBitmap fireBitmap; // ctrl + f6 이름전체바꾸기
     private int dmg;
+    private int life;
+    private int bulletLevel;
+
 
 
     public Player(float x, float y) {
@@ -27,7 +30,13 @@ public class Player implements GameObject, BoxCollidable {
         this.y = y;
         this.tx = x;
         this.ty = 0;
-        this.speed = 800;
+        this.speed = 1500;
+
+        this.life = 5;
+        this.bulletLevel = 1;
+
+
+
         this.planeBitmap = new GameBitmap(R.mipmap.fighter);
         this.fireBitmap = new GameBitmap(R.mipmap.laser_0);
 //        imageWidth = bitmap.getWidth();
@@ -63,7 +72,7 @@ public class Player implements GameObject, BoxCollidable {
     }
 
     private void fireBullet() {
-        Bullet bullet = Bullet.get(this.x,this.y,BULLET_SPEED);
+        Bullet bullet = Bullet.get(,this.x,this.y,BULLET_SPEED);
         MainGame game = MainGame.get();
         game.add(MainGame.Layer.bullet,bullet);
     }
